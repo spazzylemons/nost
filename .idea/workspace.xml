@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1569e5a0-99d5-4891-be16-1071e7e6718f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.expo/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.expo/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/.expo-shared/assets.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/.gitignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,9 +51,10 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/front-end/node_modules" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/front-end/Components/HomeScreen" />
       <recent name="$PROJECT_DIR$/my-app" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

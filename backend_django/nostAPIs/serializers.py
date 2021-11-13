@@ -50,4 +50,12 @@ class CustomUserSerializer(serializers.ModelSerializer):
 class UserPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserPost
-        fields = ('text', 'time', 'user')
+        fields = (
+            'text',
+            'time',
+            'user',
+            'neg',
+            'neu',
+            'pos',
+            'compound',
+        )

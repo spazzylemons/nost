@@ -9,8 +9,6 @@ import Signup from "./Components/SignupScreen/Signup";
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
 
   return (
       <NavigationContainer>

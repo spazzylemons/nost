@@ -1,35 +1,99 @@
-import React, { useState } from 'react'
-import { View, Text, Image, ScrollView, TextInput, Button } from 'react-native';
-
-const LoginScreen = ({ navigation }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const onSubmit = () => {
-    navigation.navigate('Home')
-  }
+import API from "../../API";
+import React, { useState } from "react";
+import {
+  Text,
+  StyleSheet,
+  TextInput,
+  View,
+  TouchableOpacity,
+  Image,
+} from "react-native";
+const Login = ({ navigation }) => {
+  const [currentUsername, setCurrentUsername] = useState("");
+  const [currentPassword, setCurrentPassword] = useState("");
+  const onLogin = async () => {
+    try {
+      let api = await API.create(currentUsername, currentPassword);
+      navigation.navigate("Menu", { api });
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
-      <ScrollView>
+    <View style={styles.container}>
+      <Image
+        source={require("../../logo.svg")}
+        style={{
+          width: "5%",
+          height: "10%",
+          alignSelf: "center",
+          marginBottom: 10,
+        }}
+      />
+      <View style={styles.inputView}>
         <TextInput
-            style={{height: 40}}
-            placeholder="Username"
-            onChangeText={text => setUsername(text)}
-            defaultValue={username}
+          style={styles.TextInput}
+          onChangeText={(text) => setCurrentUsername(text)}
+          name="username"
+          type="text"
+          placeholder="Username"
+          returnKeyType="next"
+          keyboardType="default"
+          autoCapitalize="none"
+          autoCorrect={false}
         />
+      </View>
+      <View style={styles.inputView}>
         <TextInput
-            style={{height: 40}}
-            placeholder="Password"
-            onChangeText={text => setPassword(text)}
-            defaultValue={password}/>
-        <Button
-            onPress={onSubmit}
-            title="Submit"
-            color="#841584"
-            accessibilityLabel="Learn more about this purple button"
+          style={styles.TextInput}
+          placeholder="Password"
+          name="password"
+          secureTextEntry={true}
+          autoCapitalize="none"
+          autoCorrect={false}
+          onChangeText={(text) => setCurrentPassword(text)}
         />
-      </ScrollView>
-  )
-}
+      </View>
+      <TouchableOpacity>
+        <Text style={{ color: "blue" }}>Forgot Password?</Text>
+      </TouchableOpacity>
 
-export default LoginScreen
+      <TouchableOpacity style={styles.loginBtn} onPress={onLogin}>
+        <Text style={{ fontSize: 20 }}> Log In </Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  inputView: {
+    width: "70%",
+    height: 45,
+    borderRadius: 30,
+    backgroundColor: "#FFC0CB",
+    marginBottom: 20,
+  },
+  TextInput: {
+    flex: 1,
+    borderRadius: 30,
+    padding: 10,
+  },
+  loginBtn: {
+    width: "70%",
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: "#FF1493",
+    marginTop: 40,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
+
+export default Login;

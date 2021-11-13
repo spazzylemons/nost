@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1569e5a0-99d5-4891-be16-1071e7e6718f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/front-end/Components/SignupScreen/Signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/Components/HomeScreen/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/Components/HomeScreen/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/Components/LoginScreen/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/Components/LoginScreen/Login.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +65,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1636826070977</updated>
-      <workItem from="1636826073116" duration="7481000" />
+      <workItem from="1636826073116" duration="7987000" />
     </task>
     <task id="LOCAL-00001" summary="Init front-end with expo">
       <created>1636831409229</created>
@@ -95,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636838179064</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="First Commit">
+      <created>1636838237065</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1636838237065</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +123,7 @@
     <MESSAGE value="Init front-end with expo" />
     <MESSAGE value="Added NavigationContainer for separate screens.&#10;Created component directories with separate pages&#10;&#10;Have two screens at the moment: login and home" />
     <MESSAGE value="Commit test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit test" />
+    <MESSAGE value="First Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="First Commit" />
   </component>
 </project>

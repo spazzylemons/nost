@@ -1,6 +1,7 @@
 front-end/node_modules/
 front-end/.expo/
 dist/
+.idea/
 npm-debug.*
 *.jks
 *.p8

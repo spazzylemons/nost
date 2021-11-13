@@ -58,9 +58,6 @@ class CreateUserPostView(APIView):
     sid = SentimentIntensityAnalyzer()
 
     def post(self, request):
-        if not 'user_id' in request.data:
-            return Response('missing user id', status=status.HTTP_400_BAD_REQUEST)
-        user_id = request.data['user_id']
         if 'audio' in request.data:
             audio = request.data['audio']
             headers={
@@ -91,7 +88,7 @@ class CreateUserPostView(APIView):
         serializer = UserPostSerializer(data={
             'text': text,
             'time': datetime.datetime.now(),
-            'user': user_id,
+            'user': request.user.id,
             'neg': scores['neg'],
             'neu': scores['neu'],
             'pos': scores['pos'],

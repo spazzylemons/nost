@@ -56,7 +56,7 @@ class CreateUserPostView(APIView):
 
     def post(self, request):
         if not 'user_id' in request.data:
-            return Response('missing uesr id', status=status.HTTP_400_BAD_REQUEST)
+            return Response('missing user id', status=status.HTTP_400_BAD_REQUEST)
         user_id = request.data['user_id']
         if not 'text' in request.data:
             return Response('missing text', status=status.HTTP_400_BAD_REQUEST)

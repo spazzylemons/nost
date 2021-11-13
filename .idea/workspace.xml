@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1569e5a0-99d5-4891-be16-1071e7e6718f" name="Default Changelist" comment="" />
+    <list default="true" id="1569e5a0-99d5-4891-be16-1071e7e6718f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/front-end/Components/LoginScreen/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/Components/LoginScreen/LoginScreen.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +17,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/front-end" value="Matt_He" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/front-end" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -55,7 +62,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1636826070977</updated>
-      <workItem from="1636826073116" duration="6407000" />
+      <workItem from="1636826073116" duration="6733000" />
     </task>
     <task id="LOCAL-00001" summary="Init front-end with expo">
       <created>1636831409229</created>

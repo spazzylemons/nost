@@ -8,7 +8,6 @@ const LoginScreen = ({ navigation }) => {
   const onSubmit = () => {
     navigation.navigate('Home')
   }
-
   return (
     <ScrollView>
       <TextInput

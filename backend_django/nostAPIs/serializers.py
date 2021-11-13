@@ -3,7 +3,7 @@ from rest_framework_simplejwt.serializers import (
     TokenObtainPairSerializer, TokenObtainSerializer, RefreshToken
 )
 from rest_framework import serializers
-from .models import CustomUser
+from .models import CustomUser, UserPost
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -46,3 +46,8 @@ class CustomUserSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+
+class UserPostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserPost
+        fields = ('text', 'time', 'user')

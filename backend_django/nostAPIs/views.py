@@ -1,4 +1,6 @@
 import datetime
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import nltk
 from django.shortcuts import render
 from .models import UserPost
 from rest_framework_simplejwt.views import TokenObtainPairView
@@ -46,3 +48,34 @@ def date_from_iso(request, param):
         return datetime.datetime.fromisoformat(request.GET.get(param, ''))
     except ValueError:
         return None
+
+class CreateUserPostView(APIView):
+    nltk.download('vader_lexicon')
+
+    sid = SentimentIntensityAnalyzer()
+
+    def post(self, request):
+        if not 'user_id' in request.data:
+            return Response('missing user id', status=status.HTTP_400_BAD_REQUEST)
+        user_id = request.data['user_id']
+        if not 'text' in request.data:
+            return Response('missing text', status=status.HTTP_400_BAD_REQUEST)
+        text = request.data['text']
+        if not isinstance(text, str):
+            return Response('text must be a string', status=status.HTTP_400_BAD_REQUEST)
+        scores = self.sid.polarity_scores(text)
+        serializer = UserPostSerializer(data={
+            'text': text,
+            'time': datetime.datetime.now(),
+            'user': user_id,
+            'neg': scores['neg'],
+            'neu': scores['neu'],
+            'pos': scores['pos'],
+            'compound': scores['compound'],
+        })
+        if serializer.is_valid():
+            user_post = serializer.save()
+            if user_post:
+                json = serializer.data
+                return Response(json, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

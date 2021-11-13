@@ -13,3 +13,8 @@ class UserPost(models.Model):
     text = models.TextField()
     time = models.DateTimeField()
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    # sentiment
+    neg = models.FloatField()
+    neu = models.FloatField()
+    pos = models.FloatField()
+    compound = models.FloatField()

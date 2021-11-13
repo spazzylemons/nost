@@ -33,8 +33,8 @@ const Login = ({ navigation }) => {
       <Image
         source={require("../../logo.svg")}
         style={{
-          width: "5%",
-          height: "10%",
+          width: '5%',
+          height: "6%",
           alignSelf: "center",
           marginBottom: 10,
         }}
@@ -70,9 +70,6 @@ const Login = ({ navigation }) => {
       <TouchableOpacity style={styles.loginBtn} onPress={onLogin}>
         <Text style={{ fontSize: 20 }}> Log In </Text>
       </TouchableOpacity>
-
-      <Text>{"password " + currentPassword}</Text>
-      <Text>{"username :" + currentUsername}</Text>
     </View>
   );
 };

@@ -6,7 +6,8 @@ from .views import (
     ObtainTokenPairView,
     CustomUserCreate,
     HelloWorldView,
-    LogoutAndBlacklistRefreshTokenForUserView
+    LogoutAndBlacklistRefreshTokenForUserView,
+    GetUserPostsView,
 )
 
 
@@ -18,4 +19,5 @@ urlpatterns = [
     path('hello/', HelloWorldView.as_view(), name='hello_world'),
     path('blacklist/', LogoutAndBlacklistRefreshTokenForUserView.as_view(),
          name='blacklist'),
+    path('posts/filter/', GetUserPostsView.as_view(), name='filter_posts'),
 ]

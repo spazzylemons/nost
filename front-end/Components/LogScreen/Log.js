@@ -13,7 +13,8 @@ import axios from "axios";
 import { Audio } from "expo-av";
 import axiosInstance from "../../axios";
 
-const Log = (api) => () => {
+const Log = ({ route }) => {
+  const api = route.params.api;
   const [textSend, setTextSend] = useState("");
   const [recordedURI, setRecordedURI] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
@@ -64,9 +65,7 @@ const Log = (api) => () => {
 
   async function handleSubmitText() {
     try {
-      let response = await axiosInstance.post("posts/create/", {
-        texts: textSend,
-      });
+      await api.createTextPost(textSend);
     } catch (error) {
       throw error;
     }

@@ -15,7 +15,7 @@ async function checkedFetch(...args) {
 async function get(path, auth) {
     return await checkedFetch(SERVER_URL + path, {
         method: 'GET',
-        ...authHeader(auth),
+        headers: authHeader(auth),
     });
 }
 

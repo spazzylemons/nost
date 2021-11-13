@@ -83,6 +83,10 @@ const Signup = ({ navigation }) => {
           Already have an account? Log in instead!
         </Text>
       </TouchableOpacity>
+<<<<<<< HEAD
+=======
+
+>>>>>>> f7f14f9ec62ecad0725a582ae2d96bd4f0b85021
       <TouchableOpacity style={styles.SignupBtn} onPress={onSubmit}>
         <Text style={{ fontSize: 20 }}>Sign Up</Text>
       </TouchableOpacity>

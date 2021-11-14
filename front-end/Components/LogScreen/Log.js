@@ -13,7 +13,7 @@ import axios from "axios";
 import { Audio } from "expo-av";
 import axiosInstance from "../../axios";
 
-const Log = () => {
+const Log = (api) => () => {
   const [textSend, setTextSend] = useState("");
   const [recordedURI, setRecordedURI] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
@@ -54,6 +54,8 @@ const Log = () => {
     await recordedURI.stopAndUnloadAsync();
     console.log(recordedURI);
     const uri = recordedURI.getURI();
+    const res = await fetch(uri);
+    await api.createAudioPost(res.headers.get('Content-Type'), await res.blob());
     console.log("Recording stopped and stored at", uri);
     setIsRecording(false)
   }

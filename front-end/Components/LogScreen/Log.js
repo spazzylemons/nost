@@ -2,22 +2,21 @@ import React, { useState } from "react";
 import {
   View,
   Text,
-  Image,
   ScrollView,
   TextInput,
   Button,
   StyleSheet,
   TouchableOpacity
 } from "react-native";
+import { Icon } from 'react-native-elements'
 import axios from "axios";
 import { Audio } from "expo-av";
 import axiosInstance from "../../axios";
 
-
 const Log = () => {
   const [textSend, setTextSend] = useState("");
-  const [recording, setRecording] = useState(null);
-
+  const [recordedURI, setRecordedURI] = useState(null);
+  const [isRecording, setIsRecording] = useState(false);
   {/*const axiosInstance = axios.create({
     baseURL: "http://127.0.0.1:8000/api/",
     timeout: 5000,
@@ -38,10 +37,11 @@ const Log = () => {
         playsInSilentModeIOS: true,
       });
       console.log("Starting recording..");
-      const { newRecording } = await Audio.Recording.createAsync(
+      const { recording } = await Audio.Recording.createAsync(
         Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY
       );
-      setRecording(newRecording);
+      setRecordedURI(recording);
+      setIsRecording(true)
       console.log("Recording started");
     } catch (err) {
       console.error("Failed to start recording", err);
@@ -49,11 +49,13 @@ const Log = () => {
   }
 
   async function stopRecording() {
+    // Error here
     console.log("Stopping recording..");
-    setRecording(undefined);
-    await recording.stopAndUnloadAsync();
-    const uri = recording.getURI();
+    await recordedURI.stopAndUnloadAsync();
+    console.log(recordedURI);
+    const uri = recordedURI.getURI();
     console.log("Recording stopped and stored at", uri);
+    setIsRecording(false)
   }
 
   async function handleSubmitText() {
@@ -78,11 +80,10 @@ const Log = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <View>
+      <View style={styles.view}>
         <TextInput
           placeholder="i.e This place was a blast!"
           onChangeText={setTextSend}
-          defaultValue={textSend}
         />
 
         <Button
@@ -91,12 +92,17 @@ const Log = () => {
           color="#841584"
         />
       </View>
-      <View>
+      <View style={styles.view}>
+        <Icon
+            name='mic'
+            type='ionicon'
+            color='gray'
+        />
         <TouchableOpacity
           style={styles.button}
-          onPress={recording ? stopRecording : startRecording}
+          onPress={isRecording ? stopRecording : startRecording}
         >
-          <Text>{recording ? "Stop Recording" : "Start Recording"}</Text>
+          <Text>{isRecording ? "Stop Recording" : "Start Recording"}</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -110,12 +116,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#ffffff",
     alignItems: "center",
-    justifyContent: 'space-evenly',
   },
   view: {
+    width:"80%",
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   button: {
-    backgroundColor: "#DDDDDD",
-    padding: 10
+    borderRadius: 25,
+    backgroundColor:"salmon",
   }
 });

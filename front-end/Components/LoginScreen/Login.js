@@ -10,7 +10,7 @@ const Login = ({ navigation, route}) => {
 
   const onSubmit = () => {
       if (currentUsername === username && currentPassword === password) {
-        navigation.navigate('Home')
+        navigation.navigate('Menu')
       } else {
         console.log('Incorrect Password')
         console.log(currentPassword)

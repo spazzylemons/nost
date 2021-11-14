@@ -79,10 +79,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   inputView: {
-    backgroundColor: "#FFC0CB",
-    borderRadius: 30,
     width: "70%",
     height: 45,
+    borderRadius: 30,
+    backgroundColor: "#FFC0CB",
     marginBottom: 20,
   },
   TextInput: {
@@ -92,12 +92,12 @@ const styles = StyleSheet.create({
   },
   SignupBtn: {
     width: "70%",
+    height: 50,
     borderRadius: 25,
+    backgroundColor: 'hotpink',
+    marginTop: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    height: 50,
-    marginTop: 40,
-    backgroundColor: '#841584',
   },
 })
 

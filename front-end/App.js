@@ -14,7 +14,10 @@ const App = () => {
         <Stack.Navigator initialRouteName='Menu'>
           <Stack.Screen name="Signup" component={Signup} />
           <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="Menu" component={Menu} options={{headerLeft: null}}/>
+          <Stack.Screen
+            name="Menu"
+            component={Menu}
+            options={{headerLeft: null, headerShown: false}}/>
           {/*<Stack.Screen name="Home" component={HomeScreen} options={{headerLeft: null}}/>*/}
           {/*<Stack.Screen name="Log" component={Log} />*/}
         </Stack.Navigator>

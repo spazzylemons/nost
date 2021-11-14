@@ -7,6 +7,7 @@ import axiosInstance from "../../axios";
 
 const Log = () => {
   const [textSend, setTextSend] = useState("");
+  const [recording, setRecording] = useState(null);
 
   {/*const axiosInstance = axios.create({
     baseURL: "http://127.0.0.1:8000/api/",
@@ -28,10 +29,10 @@ const Log = () => {
         playsInSilentModeIOS: true,
       });
       console.log("Starting recording..");
-      const { recording } = await Audio.Recording.createAsync(
+      const { newRecording } = await Audio.Recording.createAsync(
         Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY
       );
-      setRecording(recording);
+      setRecording(newRecording);
       console.log("Recording started");
     } catch (err) {
       console.error("Failed to start recording", err);
@@ -70,16 +71,15 @@ const Log = () => {
     <ScrollView>
       <TextInput
         style={{ height: 40 }}
-        placeholder="Username"
+        placeholder="i.e This place was a blast!"
         onChangeText={setTextSend}
         defaultValue={textSend}
       />
 
       <Button
-        onPress={onSubmit}
+        onPress={handleSubmitText}
         title="Submit"
         color="#841584"
-        accessibilityLabel="Learn more about this purple button"
       />
       <View style={styles.container}>
         <Button

@@ -33,13 +33,25 @@ const Login = ({ navigation }) => {
           placeholder="Username"
           placeholderTextColor="#003f5c"
           onChangeText={text => setCurrentUsername(text)}
+          name="username"
+          type="text"
+          placeholder="USERNAME"
+          placeholderTextColor="#86b4b5"
+          returnKeyType="next"
+          keyboardType="default"
+          autoCapitalize="none"
+          autoCorrect={false}
       />
     </View>
     <View style={styles.inputView}>
       <TextInput
           style={styles.TextInput}
           placeholder="Password"
-          placeholderTextColor="#003f5c"
+          name="password"
+          secureTextEntry={true}
+          placeholderTextColor="#86b4b5"
+          autoCapitalize="none"
+          autoCorrect={false}
           onChangeText={text => setCurrentPassword(text)}
           />
     </View>

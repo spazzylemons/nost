@@ -30,4 +30,4 @@ const LoginScreen = ({ navigation }) => {
   )
 }
 
-export default Login
+export default LoginScreen

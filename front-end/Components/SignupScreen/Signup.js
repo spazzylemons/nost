@@ -36,8 +36,8 @@ const Signup = ({ navigation }) => {
   }
 
   return (
-      <View style={styles.container}>
-        <Image source={require('../../logo.svg')} style={{width: '8em', height: '4em', alignSelf: 'center'}} />
+    <View style={styles.container}>
+      <Image source={require('../../logo.svg')} style={{width: '8em', height: '4em', alignSelf: 'center'}} />
         <View style={styles.inputView}>
           <TextInput
               style={ styles.TextInput }

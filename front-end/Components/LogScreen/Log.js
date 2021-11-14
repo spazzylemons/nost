@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, ScrollView } from 'react-native';
 
-const HomeScreen = () => {
+const Log = () => {
   return (
       <ScrollView>
         <Text> Filler </Text>
@@ -9,4 +9,4 @@ const HomeScreen = () => {
   )
 }
 
-export default HomeScreen
+export default Log

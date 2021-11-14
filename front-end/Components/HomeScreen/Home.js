@@ -8,7 +8,7 @@ const HomeScreen = () => {
           <Avatar
               backgroundColor="blue"
               size="large"
-              title="LW"
+              title="M"
               activeOpacity={0.7}
           />
 

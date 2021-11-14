@@ -3,7 +3,7 @@ import { Button, View } from 'react-native';
 import Home from "./HomeScreen/Home";
 import Log from "./LogScreen/Log";
 
-const HomeScreen = ({ navigation }) => {
+const Menu = ({ navigation }) => {
   const [atHome, setAtHome] = useState(true);
 
   return (
@@ -19,4 +19,4 @@ const HomeScreen = ({ navigation }) => {
   )
 }
 
-export default HomeScreen
+export default Menu

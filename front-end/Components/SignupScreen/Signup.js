@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ScrollView, TextInput, Button } from 'react-native';
 
-const Login = ({ navigation }) => {
+const Signup = ({ navigation }) => {
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -37,4 +37,4 @@ const Login = ({ navigation }) => {
   )
 }
 
-export default Login
+export default Signup

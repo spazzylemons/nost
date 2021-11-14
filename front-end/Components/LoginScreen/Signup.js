@@ -7,7 +7,7 @@ const Signup = ({ navigation }) => {
   const [password, setPassword] = useState('');
 
   const onSubmit = () => {
-    navigation.navigate('Login', { username, password, setPassword, setUsername })
+    navigation.navigate('Login', { username, password })
   }
   return (
       <ScrollView>

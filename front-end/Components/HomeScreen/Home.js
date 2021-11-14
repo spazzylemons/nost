@@ -1,12 +1,19 @@
 import React from 'react'
-import { View, Text, Image, ScrollView, TextInput } from 'react-native';
+import { Text, ScrollView } from 'react-native';
+import { Avatar } from 'react-native-elements';
 
 const HomeScreen = () => {
   return (
-    <View>
+    <ScrollView>
+      <Avatar
+          backgroundColor="blue"
+          size="large"
+          title="LW"
+          activeOpacity={0.7}
+      />
       <Text> TEST TEST TesT</Text>
       <Text> TEST TEST TesT</Text>
-    </View>
+    </ScrollView>
   )
 }
 

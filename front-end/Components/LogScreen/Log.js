@@ -1,12 +1,22 @@
 import React, { useState } from "react";
-import { View, Text, Image, ScrollView, TextInput, Button,StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  TextInput,
+  Button,
+  StyleSheet,
+  TouchableOpacity
+} from "react-native";
 import axios from "axios";
-import { Audio } from "expo-av"; 
+import { Audio } from "expo-av";
 import axiosInstance from "../../axios";
-function Log() {
-  const [textSend, setTextSend] = useState("");
 
- 
+
+const Log = () => {
+  const [textSend, setTextSend] = useState("");
+  const [recording, setRecording] = useState(null);
 
   {/*const axiosInstance = axios.create({
     baseURL: "http://127.0.0.1:8000/api/",
@@ -28,10 +38,10 @@ function Log() {
         playsInSilentModeIOS: true,
       });
       console.log("Starting recording..");
-      const { recording } = await Audio.Recording.createAsync(
+      const { newRecording } = await Audio.Recording.createAsync(
         Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY
       );
-      setRecording(recording);
+      setRecording(newRecording);
       console.log("Recording started");
     } catch (err) {
       console.error("Failed to start recording", err);
@@ -67,25 +77,27 @@ function Log() {
   }
 
   return (
-    <ScrollView>
-      <TextInput
-        style={{ height: 40 }}
-        placeholder="Username"
-        onChangeText={setTextSend}
-        defaultValue={textSend}
-      />
-
-      <Button
-        onPress={onSubmit}
-        title="Submit"
-        color="#841584"
-        accessibilityLabel="Learn more about this purple button"
-      />
-      <View style={styles.container}>
-        <Button
-          title={recording ? "Stop Recording" : "Start Recording"}
-          onPress={recording ? stopRecording : startRecording}
+    <ScrollView contentContainerStyle={styles.container}>
+      <View>
+        <TextInput
+          placeholder="i.e This place was a blast!"
+          onChangeText={setTextSend}
+          defaultValue={textSend}
         />
+
+        <Button
+          onPress={handleSubmitText}
+          title="Submit"
+          color="#841584"
+        />
+      </View>
+      <View>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={recording ? stopRecording : startRecording}
+        >
+          <Text>{recording ? "Stop Recording" : "Start Recording"}</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -96,8 +108,14 @@ export default Log;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    backgroundColor: "#ecf0f1",
-    padding: 10,
+    backgroundColor: "#ffffff",
+    alignItems: "center",
+    justifyContent: 'space-evenly',
   },
+  view: {
+  },
+  button: {
+    backgroundColor: "#DDDDDD",
+    padding: 10
+  }
 });

@@ -1,24 +1,30 @@
 import React, { useState } from 'react'
-import { Image, ScrollView, TextInput, Button } from 'react-native';
+import {
+  TextInput,
+  Text,
+  TouchableOpacity, StyleSheet, View
+} from 'react-native';
+
 import API from '../../API';
+
 import axiosInstance from '../../axios';
+
 const Signup = ({ navigation }) => {
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const axiosInstance1 = axiosInstance();
+
   async function onSubmit() {
     try {
       let response = await axiosInstance1.post(
         'user/create/',
         { email, username, password }
       );
-
-
-      
       navigation.navigate('Login');
     } catch (e) {
+      console.log('test')
       throw e;
     }
   }
@@ -28,41 +34,72 @@ const Signup = ({ navigation }) => {
   }
 
   return (
-      <ScrollView>
+    <View style={styles.container}>
       <Image source={require('../../logo.svg')} style={{width: '8em', height: '4em', alignSelf: 'center'}} />
-        <TextInput
-            style={{height: 40}}
-            placeholder="Username"
-            onChangeText={text => setUsername(text)}
-        />
-        <TextInput
-            style={{height: 40}}
-            placeholder="Email"
-            onChangeText={text => setEmail(text)}
-            defaultValue={email}
-        />
-        <TextInput
-            style={{height: 40}}
-            name="password"
-            placeholder="PASSWORD"
+        <View style={styles.inputView}>
+          <TextInput
+              style={ styles.TextInput }
+              placeholder="Username"
+              onChangeText={text => setUsername(text)}
+          />
+        </View>
+        <View style={styles.inputView}>
+          <TextInput
+              style={ styles.TextInput }
+              placeholder="Username"
+              onChangeText={text => setUsername(text)}
+          />
+        </View>
+        <View style={styles.inputView}>
+          <TextInput
+            style={ styles.TextInput }
+            name="Password"
+            placeholder="Password"
             secureTextEntry={true}
-            placeholderTextColor="#86b4b5"
             autoCapitalize="none"
             autoCorrect={false}
             onChangeText={text => setPassword(text)}
           />
-          <Button
-              onPress={onSubmit}
-              title="Submit"
-              color="#841584"
-          />
-          <Button
-              onPress={onSkipLogin}
-              title="Skip to Login"
-              color="#841584"
-          />
-      </ScrollView>
+        </View>
+          <TouchableOpacity onPress={onSkipLogin}>
+            <Text style={{ color: 'blue'}}> Already have an account? Log in instead!</Text>
+          </TouchableOpacity>
+
+        <TouchableOpacity style={styles.SignupBtn} onPress={onSubmit}>
+          <Text style={{fontSize: 20}}>Sign Up</Text>
+        </TouchableOpacity>
+      </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputView: {
+    width: "70%",
+    height: 45,
+    borderRadius: 30,
+    backgroundColor: "#FFC0CB",
+    marginBottom: 20,
+  },
+  TextInput: {
+    flex: 1,
+    borderRadius: 30,
+    padding: 10,
+  },
+  SignupBtn: {
+    width: "70%",
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: 'hotpink',
+    marginTop: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})
 
 export default Signup

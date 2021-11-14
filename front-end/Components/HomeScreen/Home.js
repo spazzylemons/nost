@@ -1,19 +1,65 @@
 import React from 'react'
-import { ScrollView, Button, View } from 'react-native';
+import {FlatList, ScrollView, StyleSheet, Text} from 'react-native';
 import { Avatar } from 'react-native-elements';
+import View
+  from "react-native-web/dist/vendor/react-native/Animated/components/AnimatedView";
+
+const DATA = [
+  {
+    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+    title: "First Item",
+  },
+  {
+    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+    title: "Second Item",
+  },
+  {
+    id: "58694a0f-3da1-471f-bd96-145571e29d72",
+    title: "Third Item",
+  },
+];
 
 const HomeScreen = () => {
+  const renderItem = ({ item }) => {
+    return (
+        <View style={styles.item}>
+          <Text style={styles.title}>{item.title}</Text>
+        </View>
+    )
+  }
   return (
-    <ScrollView>
-          <Avatar
-              backgroundColor="blue"
-              size="large"
-              title="LW"
-              activeOpacity={0.7}
-          />
-
+    <ScrollView contentContainerStyle={styles.container}>
+        <Avatar
+            size="large"
+            title="M"
+            activeOpacity={0.7}
+        />
+      <Text> Hello </Text>
+      {/*Flatlist or virtualized list?*/}
+      <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={(item) => { console.log(item.id); item.id} }
+      />
     </ScrollView>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+  },
+  item: {
+    backgroundColor: '#ffffff',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
+  },
+});
+
 
 export default HomeScreen

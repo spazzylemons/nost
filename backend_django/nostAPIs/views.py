@@ -58,8 +58,16 @@ class CreateUserPostView(APIView):
     sid = SentimentIntensityAnalyzer()
 
     def post(self, request):
-        if 'audio' in request.data:
-            audio = request.data['audio']
+        if request.content_type == 'text/plain':
+            text = request.body.decode('utf-8')
+        else:
+            # assume audio stream
+            def generator():
+                yield request.body
+            url = requests.post('https://api.assemblyai.com/v2/upload',
+                headers={'Authorization': os.environ['ASSEMBLYAI_TOKEN'],
+                    'Content-Type': request.content_type},
+                data=generator()).json()['upload_url']
             headers={
                 'Authorization': os.environ['ASSEMBLYAI_TOKEN'],
                 'Content-Type': 'application/json',
@@ -67,9 +75,7 @@ class CreateUserPostView(APIView):
             res = requests.post(
                 'https://api.assemblyai.com/v2/transcript',
                 headers=headers,
-                json={
-                    'audio_url': audio
-                }
+                json={'audio_url': url}
             ).json()
             while res['status'] != 'completed':
                 time.sleep(0.5)
@@ -78,12 +84,6 @@ class CreateUserPostView(APIView):
                     headers=headers,
                 ).json()
             text = res['text']
-        elif 'text' in request.data:
-            text = request.data['text']
-        else:
-            return Response('missing text', status=status.HTTP_400_BAD_REQUEST)
-        if not isinstance(text, str):
-            return Response('text must be a string', status=status.HTTP_400_BAD_REQUEST)
         scores = self.sid.polarity_scores(text)
         serializer = UserPostSerializer(data={
             'text': text,

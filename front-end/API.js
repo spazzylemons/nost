@@ -60,12 +60,26 @@ export default class API {
         }`, this.accessToken);
     }
 
-    async createAudioPost(audio) {
-        return await post('posts/create/', { audio }, this.accessToken);
+    async createAudioPost(type, audio) {
+        return await checkedFetch(SERVER_URL + 'posts/create/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': type,
+                ...authHeader(this.accessToken),
+            },
+            body: audio,
+        });
     }
 
     async createTextPost(text) {
-        return await post('posts/create/', { text }, this.accessToken);
+        return await checkedFetch(SERVER_URL + 'posts/create/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'text/plain',
+                ...authHeader(this.accessToken),
+            },
+            body: text,
+        });
     }
 }
 

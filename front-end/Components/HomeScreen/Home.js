@@ -1,6 +1,22 @@
-import React from 'react'
-import { View, FlatList, ScrollView, StyleSheet, Text} from 'react-native';
-import { Avatar } from 'react-native-elements';
+import React from "react";
+import { FlatList, ScrollView, StyleSheet, Text } from "react-native";
+import { Avatar } from "react-native-elements";
+import View from "react-native-web/dist/vendor/react-native/Animated/components/AnimatedView";
+
+const DATA = [
+  {
+    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+    title: "First Item",
+  },
+  {
+    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+    title: "Second Item",
+  },
+  {
+    id: "58694a0f-3da1-471f-bd96-145571e29d72",
+    title: "Third Item",
+  },
+];
 
 const HomeScreen = ({ route }) => {
   const api = route.params.api
@@ -15,11 +31,11 @@ const HomeScreen = ({ route }) => {
 
   const renderItem = ({ item }) => {
     return (
-        <View style={styles.item}>
-          <Text style={styles.title}>{item.title}</Text>
-        </View>
-    )
-  }
+      <View style={styles.item}>
+        <Text style={styles.title}>{item.title}</Text>
+      </View>
+    );
+  };
   return (
     <ScrollView contentContainerStyle={styles.container}>
         <Avatar
@@ -45,10 +61,9 @@ const HomeScreen = ({ route }) => {
       {/*  </View>*/}
       {/* )*/}
       {/*  })};*/}
-
     </ScrollView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -56,7 +71,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   item: {
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
@@ -66,5 +81,4 @@ const styles = StyleSheet.create({
   },
 });
 
-
-export default HomeScreen
+export default HomeScreen;

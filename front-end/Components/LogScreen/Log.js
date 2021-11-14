@@ -6,9 +6,9 @@ import {
   TextInput,
   Button,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
-import { Icon } from 'react-native-elements'
+import { Icon } from "react-native-elements";
 import axios from "axios";
 import { Audio } from "expo-av";
 import axiosInstance from "../../axios";
@@ -17,7 +17,8 @@ const Log = (api) => () => {
   const [textSend, setTextSend] = useState("");
   const [recordedURI, setRecordedURI] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
-  {/*const axiosInstance = axios.create({
+  {
+    /*const axiosInstance = axios.create({
     baseURL: "http://127.0.0.1:8000/api/",
     timeout: 5000,
     headers: {
@@ -26,7 +27,8 @@ const Log = (api) => () => {
       accept: "application/json",
     },
   });
-*/}
+*/
+  }
 
   async function startRecording() {
     try {
@@ -41,7 +43,7 @@ const Log = (api) => () => {
         Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY
       );
       setRecordedURI(recording);
-      setIsRecording(true)
+      setIsRecording(true);
       console.log("Recording started");
     } catch (err) {
       console.error("Failed to start recording", err);
@@ -57,7 +59,7 @@ const Log = (api) => () => {
     const res = await fetch(uri);
     await api.createAudioPost(res.headers.get('Content-Type'), await res.blob());
     console.log("Recording stopped and stored at", uri);
-    setIsRecording(false)
+    setIsRecording(false);
   }
 
   async function handleSubmitText() {
@@ -88,18 +90,10 @@ const Log = (api) => () => {
           onChangeText={setTextSend}
         />
 
-        <Button
-          onPress={handleSubmitText}
-          title="Submit"
-          color="#841584"
-        />
+        <Button onPress={handleSubmitText} title="Submit" color="#841584" />
       </View>
       <View style={styles.view}>
-        <Icon
-            name='mic'
-            type='ionicon'
-            color='gray'
-        />
+        <Icon name="mic" type="ionicon" color="gray" />
         <TouchableOpacity
           style={styles.button}
           onPress={isRecording ? stopRecording : startRecording}
@@ -109,7 +103,7 @@ const Log = (api) => () => {
       </View>
     </ScrollView>
   );
-}
+};
 
 export default Log;
 
@@ -120,13 +114,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   view: {
-    width:"80%",
+    width: "80%",
     height: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   button: {
     borderRadius: 25,
-    backgroundColor:"salmon",
-  }
+    backgroundColor: "salmon",
+  },
 });

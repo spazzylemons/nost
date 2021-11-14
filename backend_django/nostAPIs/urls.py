@@ -7,6 +7,7 @@ from .views import (
     CustomUserCreate,
     GetUserPostsView,
     CreateUserPostView,
+    TestView
 )
 
 
@@ -17,4 +18,5 @@ urlpatterns = [
     path('user/create/', CustomUserCreate.as_view(), name="create_user"),
     path('posts/filter/', GetUserPostsView.as_view(), name='filter_posts'),
     path('posts/create/', CreateUserPostView.as_view(), name='create_post'),
+    path('test/', TestView.as_view(), name='test'),
 ]

@@ -36,6 +36,7 @@ class CustomUserCreate(APIView):
                 return Response(json, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class GetUserPostsView(APIView):
     def get(self, request):
         start_time = date_from_iso(request, 'start_time')
@@ -46,11 +47,13 @@ class GetUserPostsView(APIView):
             return Response(serializer.data)
         return Response('invalid timestamp', status=status.HTTP_400_BAD_REQUEST)
 
+
 def date_from_iso(request, param):
     try:
         return datetime.datetime.fromisoformat(request.GET.get(param, ''))
     except ValueError:
         return None
+
 
 class CreateUserPostView(APIView):
     nltk.download('vader_lexicon')
@@ -65,10 +68,10 @@ class CreateUserPostView(APIView):
             def generator():
                 yield request.body
             url = requests.post('https://api.assemblyai.com/v2/upload',
-                headers={'Authorization': os.environ['ASSEMBLYAI_TOKEN'],
-                    'Content-Type': request.content_type},
-                data=generator()).json()['upload_url']
-            headers={
+                                headers={'Authorization': os.environ['ASSEMBLYAI_TOKEN'],
+                                         'Content-Type': request.content_type},
+                                data=generator()).json()['upload_url']
+            headers = {
                 'Authorization': os.environ['ASSEMBLYAI_TOKEN'],
                 'Content-Type': 'application/json',
             }
@@ -100,3 +103,11 @@ class CreateUserPostView(APIView):
                 json = serializer.data
                 return Response(json, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class TestView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def post(self, request, *args, **kwargs):
+        print(request.data)
+        return Response(request.data)

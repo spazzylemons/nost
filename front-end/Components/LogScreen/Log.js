@@ -37,10 +37,10 @@ const Log = () => {
         playsInSilentModeIOS: true,
       });
       console.log("Starting recording..");
-      const { newRecording } = await Audio.Recording.createAsync(
+      const { recording } = await Audio.Recording.createAsync(
         Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY
       );
-      setRecordedURI(newRecording);
+      setRecordedURI(recording);
       setIsRecording(true)
       console.log("Recording started");
     } catch (err) {
@@ -49,9 +49,10 @@ const Log = () => {
   }
 
   async function stopRecording() {
-    console.log("Stopping recording..");
     // Error here
+    console.log("Stopping recording..");
     await recordedURI.stopAndUnloadAsync();
+    console.log(recordedURI);
     const uri = recordedURI.getURI();
     console.log("Recording stopped and stored at", uri);
     setIsRecording(false)

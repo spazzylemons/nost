@@ -26,8 +26,8 @@ const Signup = ({ navigation }) => {
       );
       navigation.navigate('Login');
     } catch (e) {
-      console.log('test')
       throw e;
+
     }
   }
 
@@ -37,40 +37,40 @@ const Signup = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Image source={require('../../logo.svg')} style={{width: '8em', height: '4em', alignSelf: 'center'}} />
-        <View style={styles.inputView}>
-          <TextInput
-              style={ styles.TextInput }
-              placeholder="Username"
-              onChangeText={text => setUsername(text)}
-          />
-        </View>
-        <View style={styles.inputView}>
-          <TextInput
-              style={ styles.TextInput }
-              placeholder="Username"
-              onChangeText={text => setUsername(text)}
-          />
-        </View>
-        <View style={styles.inputView}>
-          <TextInput
-              style={ styles.TextInput }
-              name="Password"
-              placeholder="Password"
-              secureTextEntry={true}
-              autoCapitalize="none"
-              autoCorrect={false}
-              onChangeText={text => setPassword(text)}
-          />
-        </View>
-        <TouchableOpacity onPress={onSkipLogin}>
-          <Text style={{ color: 'blue'}}> Already have an account? Log in instead!</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.SignupBtn} onPress={onSubmit}>
-          <Text style={{fontSize: 20}}>Sign Up</Text>
-        </TouchableOpacity>
+      <Image source={require('../../logo.svg')} style={{width: '8em', height: '4em', alignSelf: 'center', marginBottom: 10}} />
+      <View style={styles.inputView}>
+        <TextInput
+            style={ styles.TextInput }
+            placeholder="Username"
+            onChangeText={text => setUsername(text)}
+        />
       </View>
+      <View style={styles.inputView}>
+        <TextInput
+            style={ styles.TextInput }
+            placeholder="Email"
+            onChangeText={text => setEmail(text)}
+        />
+      </View>
+      <View style={styles.inputView}>
+        <TextInput
+            style={ styles.TextInput }
+            name="Password"
+            placeholder="Password"
+            secureTextEntry={true}
+            autoCapitalize="none"
+            autoCorrect={false}
+            onChangeText={text => setPassword(text)}
+        />
+      </View>
+      <TouchableOpacity onPress={onSkipLogin}>
+        <Text style={{ color: 'blue'}}> Already have an account? Log in instead!</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.SignupBtn} onPress={onSubmit}>
+        <Text style={{fontSize: 20}}>Sign Up</Text>
+      </TouchableOpacity>
+    </View>
   )
 }
 

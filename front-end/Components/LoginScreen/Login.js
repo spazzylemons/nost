@@ -5,7 +5,7 @@ import {
   StyleSheet,
   TextInput,
   View,
-  TouchableOpacity
+  TouchableOpacity, Image
 } from 'react-native';
 
 const Login = ({ navigation }) => {
@@ -24,6 +24,7 @@ const Login = ({ navigation }) => {
 
   return (
   <View style={styles.container}>
+    <Image source={require('../../logo.svg')} style={{width: '8em', height: '4em', alignSelf: 'center', marginBottom: 10}} />
     <View style={styles.inputView}>
       <TextInput
           style={styles.TextInput}

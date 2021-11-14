@@ -1,8 +1,6 @@
 import React from 'react'
-import {FlatList, ScrollView, StyleSheet, Text} from 'react-native';
+import { View, FlatList, ScrollView, StyleSheet, Text} from 'react-native';
 import { Avatar } from 'react-native-elements';
-import View
-  from "react-native-web/dist/vendor/react-native/Animated/components/AnimatedView";
 
 const HomeScreen = () => {
   const renderItem = ({ item }) => {
@@ -21,11 +19,11 @@ const HomeScreen = () => {
         />
       <Text> Hello </Text>
       {/*Flatlist or virtualized list?*/}
-      <FlatList
-          data={DATA}
-          renderItem={renderItem}
-          keyExtractor={(item) => { console.log(item.id); item.id} }
-      />
+      {/*<FlatList*/}
+      {/*    data={DATA}*/}
+      {/*    renderItem={renderItem}*/}
+      {/*    keyExtractor={(item) => { console.log(item.id); item.id} }*/}
+      {/*/>*/}
 
       {/*{ array.forEach((obj) => {*/}
       {/*  console.log(obj.id);*/}

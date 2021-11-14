@@ -62,9 +62,6 @@ const Login = ({ navigation }) => {
       <TouchableOpacity style={styles.loginBtn} onPress={onLogin}>
         <Text style={{ fontSize: 20 }}> Log In </Text>
       </TouchableOpacity>
-
-      <Text>{"password " + currentPassword}</Text>
-      <Text>{"username :" + currentUsername}</Text>
     </View>
   );
 };

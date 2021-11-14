@@ -50,7 +50,7 @@ class GetUserPostsView(APIView):
 
 def date_from_iso(request, param):
     try:
-        return datetime.datetime.fromisoformat(request.GET.get(param, ''))
+        return datetime.datetime.fromisoformat(request.GET.get(param, '')[:-1])
     except ValueError:
         return None
 

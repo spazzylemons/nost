@@ -2,7 +2,17 @@ import React from 'react'
 import { View, FlatList, ScrollView, StyleSheet, Text} from 'react-native';
 import { Avatar } from 'react-native-elements';
 
-const HomeScreen = () => {
+const HomeScreen = ({ route }) => {
+  const api = route.params.api
+  const today = new Date();
+  const yesterday = new Date(today)
+  yesterday.setDate(yesterday.getDate() - 1)
+
+  console.log(today)
+  console.log(yesterday)
+
+  api.filterPosts(yesterday, today).then(r => console.log("test: " + r))
+
   const renderItem = ({ item }) => {
     return (
         <View style={styles.item}>
@@ -17,7 +27,6 @@ const HomeScreen = () => {
             title="M"
             activeOpacity={0.7}
         />
-      <Text> Hello </Text>
       {/*Flatlist or virtualized list?*/}
       {/*<FlatList*/}
       {/*    data={DATA}*/}

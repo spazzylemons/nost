@@ -52,6 +52,7 @@ export default class API {
     }
 
     async filterPosts(startTime, endTime) {
+        console.log(this.accessToken)
         return await get(`posts/filter/?start_time=${
             encodeURIComponent(startTime.toISOString())
         }&end_time=${

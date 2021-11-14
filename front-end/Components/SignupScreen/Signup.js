@@ -1,15 +1,25 @@
 import React, { useState } from 'react'
 import { ScrollView, TextInput, Button } from 'react-native';
 
-const Login = ({ navigation }) => {
+const Signup = ({ navigation }) => {
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const onSubmit = () => {
-    navigation.navigate('Login', { username, password })
+  const onSubmit = async () => {
+    try {
+      await API.createUser(email, username, password);
+      navigation.navigate('Login');
+    } catch (e) {
+      console.log(e);
+    }
   }
+
+  const onSkipLogin = () => {
+    navigation.navigate('Login');
+  }
+
   return (
       <ScrollView>
         <TextInput
@@ -28,13 +38,18 @@ const Login = ({ navigation }) => {
             placeholder="Password"
             onChangeText={text => setPassword(text)}
           />
-        <Button
-            onPress={onSubmit}
-            title="Submit"
-            color="#841584"
-        />
+          <Button
+              onPress={onSubmit}
+              title="Submit"
+              color="#841584"
+          />
+          <Button
+              onPress={onSkipLogin}
+              title="Skip to Login"
+              color="#841584"
+          />
       </ScrollView>
   )
 }
 
-export default Login
+export default Signup

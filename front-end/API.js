@@ -1,7 +1,7 @@
 const SERVER_URL = 'http://127.0.0.1:8000/api/';
 
 function authHeader(auth) {
-    return auth ? { 'Authentication': 'JWT ' + auth } : {};
+    return auth ? { 'Authorization': 'JWT ' + auth } : {};
 }
 
 async function checkedFetch(...args) {
@@ -53,9 +53,9 @@ export default class API {
 
     async filterPosts(startTime, endTime) {
         return await get(`posts/filter/?start_time=${
-            encodeURIComponent(startTime)
+            encodeURIComponent(startTime.toISOString())
         }&end_time=${
-            encodeURIComponent(endTime)
+            encodeURIComponent(endTime.toISOString())
         }`, this.accessToken);
     }
 

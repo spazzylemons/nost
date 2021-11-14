@@ -1,8 +1,7 @@
-import React from 'react'
-import {FlatList, ScrollView, StyleSheet, Text} from 'react-native';
-import { Avatar } from 'react-native-elements';
-import View
-  from "react-native-web/dist/vendor/react-native/Animated/components/AnimatedView";
+import React from "react";
+import { FlatList, ScrollView, StyleSheet, Text } from "react-native";
+import { Avatar } from "react-native-elements";
+import View from "react-native-web/dist/vendor/react-native/Animated/components/AnimatedView";
 
 const DATA = [
   {
@@ -22,28 +21,24 @@ const DATA = [
 const HomeScreen = () => {
   const renderItem = ({ item }) => {
     return (
-        <View style={styles.item}>
-          <Text style={styles.title}>{item.title}</Text>
-        </View>
-    )
-  }
+      <View style={styles.item}>
+        <Text style={styles.title}>{item.title}</Text>
+      </View>
+    );
+  };
   return (
     <ScrollView contentContainerStyle={styles.container}>
-        <Avatar
-            size="large"
-            title="M"
-            activeOpacity={0.7}
-        />
+      <Avatar size="large" title="M" activeOpacity={0.7} />
       <Text> Hello </Text>
       {/*Flatlist or virtualized list?*/}
-      <FlatList
+      {/*<FlatList
           data={DATA}
           renderItem={renderItem}
           keyExtractor={(item) => { console.log(item.id); item.id} }
-      />
+      />*/}
     </ScrollView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -51,7 +46,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   item: {
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
@@ -61,5 +56,4 @@ const styles = StyleSheet.create({
   },
 });
 
-
-export default HomeScreen
+export default HomeScreen;

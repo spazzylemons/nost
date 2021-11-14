@@ -5,7 +5,7 @@ import Log from "./LogScreen/Log";
 
 
 const Menu = ({ navigation, route }) => {
-  const { api } = route.params;
+  // const { api } = route.params;
 
   const [atHome, setAtHome] = useState(true);
 

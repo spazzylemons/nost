@@ -1,15 +1,12 @@
 import API from '../../API';
 import React, { useState } from 'react'
 import {
+  Text,
   StyleSheet,
-  ScrollView,
   TextInput,
-  Button,
   View,
   TouchableOpacity
 } from 'react-native';
-import Text
-  from "react-native-web/dist/vendor/react-native/Animated/components/AnimatedText";
 
 const Login = ({ navigation }) => {
 
@@ -54,11 +51,11 @@ const Login = ({ navigation }) => {
           />
     </View>
     <TouchableOpacity>
-      <Text>Forgot Password?</Text>
+      <Text style={{color: 'blue'}}>Forgot Password?</Text>
     </TouchableOpacity>
 
     <TouchableOpacity style={styles.loginBtn} onPress={onLogin}>
-      <Text>LOGIN</Text>
+      <Text style={{fontSize: 20, }}> Log In </Text>
     </TouchableOpacity>
   </View>
   )
@@ -80,17 +77,17 @@ const styles = StyleSheet.create({
   },
   TextInput: {
     flex: 1,
+    borderRadius: 30,
     padding: 10,
-    marginLeft: 20,
   },
   loginBtn: {
-    width:"80%",
+    width:"70%",
     borderRadius:25,
     height:50,
-    alignItems:"center",
-    justifyContent:"center",
     marginTop:40,
     backgroundColor:"#FF1493",
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 });
 

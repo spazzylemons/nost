@@ -10,6 +10,7 @@ const LoginScreen = ({ navigation }) => {
   }
 
   return (
+    <ScrollView>
       <TextInput
           style={{height: 40}}
           placeholder="Username"

@@ -4,21 +4,6 @@ import { Avatar } from 'react-native-elements';
 import View
   from "react-native-web/dist/vendor/react-native/Animated/components/AnimatedView";
 
-const DATA = [
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-    title: "First Item",
-  },
-  {
-    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-    title: "Second Item",
-  },
-  {
-    id: "58694a0f-3da1-471f-bd96-145571e29d72",
-    title: "Third Item",
-  },
-];
-
 const HomeScreen = () => {
   const renderItem = ({ item }) => {
     return (
@@ -41,6 +26,19 @@ const HomeScreen = () => {
           renderItem={renderItem}
           keyExtractor={(item) => { console.log(item.id); item.id} }
       />
+
+      {/*{ array.forEach((obj) => {*/}
+      {/*  console.log(obj.id);*/}
+      {/*  const { text, sentiment, username } = array;*/}
+
+      {/* return (*/}
+      {/*  <View>*/}
+      {/*    <Text>{ text }</Text>*/}
+      {/*    <Text>{ username }</Text>*/}
+      {/*  </View>*/}
+      {/* )*/}
+      {/*  })};*/}
+
     </ScrollView>
   )
 }

@@ -67,3 +67,4 @@ export default class API {
         return await post('posts/create/', { text }, this.accessToken);
     }
 }
+

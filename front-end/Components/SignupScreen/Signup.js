@@ -2,8 +2,13 @@ import React, { useState } from 'react'
 import {
   TextInput,
   Text,
-  TouchableOpacity, StyleSheet, View
+  TouchableOpacity,
+  StyleSheet, View,
+  Image,
 } from 'react-native';
+
+import API from '../../API';
+
 import axiosInstance from '../../axios';
 
 const Signup = ({ navigation }) => {
@@ -16,8 +21,8 @@ const Signup = ({ navigation }) => {
   async function onSubmit() {
     try {
       let response = await axiosInstance1.post(
-        'user/create/',
-        { email, username, password }
+          'user/create/',
+          { email, username, password }
       );
       navigation.navigate('Login');
     } catch (e) {
@@ -32,6 +37,7 @@ const Signup = ({ navigation }) => {
 
   return (
       <View style={styles.container}>
+        <Image source={require('../../logo.svg')} style={{width: '8em', height: '4em', alignSelf: 'center'}} />
         <View style={styles.inputView}>
           <TextInput
               style={ styles.TextInput }
@@ -41,26 +47,25 @@ const Signup = ({ navigation }) => {
         </View>
         <View style={styles.inputView}>
           <TextInput
-            style={ styles.TextInput }
-            placeholder="Email"
-            onChangeText={text => setEmail(text)}
-            defaultValue={email}
+              style={ styles.TextInput }
+              placeholder="Username"
+              onChangeText={text => setUsername(text)}
           />
         </View>
         <View style={styles.inputView}>
           <TextInput
-            style={ styles.TextInput }
-            name="Password"
-            placeholder="Password"
-            secureTextEntry={true}
-            autoCapitalize="none"
-            autoCorrect={false}
-            onChangeText={text => setPassword(text)}
+              style={ styles.TextInput }
+              name="Password"
+              placeholder="Password"
+              secureTextEntry={true}
+              autoCapitalize="none"
+              autoCorrect={false}
+              onChangeText={text => setPassword(text)}
           />
         </View>
-          <TouchableOpacity onPress={onSkipLogin}>
-            <Text style={{ color: 'blue'}}> Already have an account? Log in instead!</Text>
-          </TouchableOpacity>
+        <TouchableOpacity onPress={onSkipLogin}>
+          <Text style={{ color: 'blue'}}> Already have an account? Log in instead!</Text>
+        </TouchableOpacity>
 
         <TouchableOpacity style={styles.SignupBtn} onPress={onSubmit}>
           <Text style={{fontSize: 20}}>Sign Up</Text>

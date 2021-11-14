@@ -4,6 +4,9 @@ import {
   Text,
   TouchableOpacity, StyleSheet, View
 } from 'react-native';
+
+import API from '../../API';
+
 import axiosInstance from '../../axios';
 
 const Signup = ({ navigation }) => {
@@ -31,7 +34,8 @@ const Signup = ({ navigation }) => {
   }
 
   return (
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <Image source={require('../../logo.svg')} style={{width: '8em', height: '4em', alignSelf: 'center'}} />
         <View style={styles.inputView}>
           <TextInput
               style={ styles.TextInput }
@@ -41,10 +45,9 @@ const Signup = ({ navigation }) => {
         </View>
         <View style={styles.inputView}>
           <TextInput
-            style={ styles.TextInput }
-            placeholder="Email"
-            onChangeText={text => setEmail(text)}
-            defaultValue={email}
+              style={ styles.TextInput }
+              placeholder="Username"
+              onChangeText={text => setUsername(text)}
           />
         </View>
         <View style={styles.inputView}>

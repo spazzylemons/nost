@@ -10,25 +10,23 @@ const LoginScreen = ({ navigation }) => {
   }
 
   return (
-      <ScrollView>
-        <TextInput
-            style={{height: 40}}
-            placeholder="Username"
-            onChangeText={text => setUsername(text)}
-            defaultValue={username}
-        />
-        <TextInput
-            style={{height: 40}}
-            placeholder="Password"
-            onChangeText={text => setPassword(text)}
-            defaultValue={password}/>
-        <Button
-            onPress={onSubmit}
-            title="Submit"
-            color="#841584"
-            accessibilityLabel="Learn more about this purple button"
-        />
-      </ScrollView>
+    <ScrollView>
+      <TextInput
+          style={{height: 40}}
+          placeholder="Username"
+          onChangeText={text => setUsername(text)}
+      />
+      <TextInput
+          style={{height: 40}}
+          placeholder="Password"
+          onChangeText={text => setPassword(text)}
+      />
+      <Button
+          onPress={onSubmit}
+          title="Submit"
+          color="#841584"
+      />
+    </ScrollView>
   )
 }
 

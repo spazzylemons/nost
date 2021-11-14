@@ -3,10 +3,10 @@ import { View, Text, Image, ScrollView, TextInput } from 'react-native';
 
 const HomeScreen = () => {
   return (
-      <View>
-        <Text> TEST TEST TesT</Text>
-        <Text> TEST TEST TesT</Text>
-      </View>
+    <View>
+      <Text> TEST TEST TesT</Text>
+      <Text> TEST TEST TesT</Text>
+    </View>
   )
 }
 

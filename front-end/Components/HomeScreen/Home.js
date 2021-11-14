@@ -1,8 +1,8 @@
 import React from 'react'
-import { View, Text, ScrollView } from 'react-native';
+import {Text, ScrollView, Button} from 'react-native';
 import { Avatar } from 'react-native-elements';
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   return (
     <ScrollView>
           <Avatar
@@ -13,6 +13,9 @@ const HomeScreen = () => {
           />
           <Text> TEST TEST TesT</Text>
           <Text> TEST TEST TesT</Text>
+          <Button title='Log' onPress={() => { navigation.navigate('Log')}}/>
     </ScrollView>
   )
 }
+
+export default HomeScreen

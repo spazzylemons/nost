@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import LoginScreen from "./Components/LoginScreen/Login";
+import Login from "./Components/LoginScreen/Login";
 import Signup from "./Components/SignupScreen/Signup";
 import Menu from "./Components/Menu";
 
@@ -13,7 +13,7 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator initialRouteName='Menu'>
           <Stack.Screen name="Signup" component={Signup} />
-          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Login" component={Login} />
           <Stack.Screen
             name="Menu"
             component={Menu}

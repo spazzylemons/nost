@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { View, Text, Image, ScrollView, TextInput, Button,StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  TextInput,
+  Button,
+  StyleSheet,
+  TouchableOpacity
+} from "react-native";
 import axios from "axios";
 import { Audio } from "expo-av";
 import axiosInstance from "../../axios";
@@ -68,24 +77,27 @@ const Log = () => {
   }
 
   return (
-    <ScrollView>
-      <TextInput
-        style={{ height: 40 }}
-        placeholder="i.e This place was a blast!"
-        onChangeText={setTextSend}
-        defaultValue={textSend}
-      />
-
-      <Button
-        onPress={handleSubmitText}
-        title="Submit"
-        color="#841584"
-      />
-      <View style={styles.container}>
-        <Button
-          title={recording ? "Stop Recording" : "Start Recording"}
-          onPress={recording ? stopRecording : startRecording}
+    <ScrollView contentContainerStyle={styles.container}>
+      <View>
+        <TextInput
+          placeholder="i.e This place was a blast!"
+          onChangeText={setTextSend}
+          defaultValue={textSend}
         />
+
+        <Button
+          onPress={handleSubmitText}
+          title="Submit"
+          color="#841584"
+        />
+      </View>
+      <View>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={recording ? stopRecording : startRecording}
+        >
+          <Text>{recording ? "Stop Recording" : "Start Recording"}</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -96,8 +108,14 @@ export default Log;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    backgroundColor: "#ecf0f1",
-    padding: 10,
+    backgroundColor: "#ffffff",
+    alignItems: "center",
+    justifyContent: 'space-evenly',
   },
+  view: {
+  },
+  button: {
+    backgroundColor: "#DDDDDD",
+    padding: 10
+  }
 });

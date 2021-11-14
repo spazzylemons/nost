@@ -12,7 +12,7 @@ const Menu = ({ navigation, route }) => {
 
   return (
     <Tab.Navigator
-        initialRouteName={Home}
+        initialRouteName={Log}
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;

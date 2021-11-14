@@ -31,7 +31,6 @@ const Login = ({ navigation }) => {
           name="username"
           type="text"
           placeholder="Username"
-          placeholderTextColor="#86b4b5"
           returnKeyType="next"
           keyboardType="default"
           autoCapitalize="none"
@@ -44,7 +43,6 @@ const Login = ({ navigation }) => {
           placeholder="Password"
           name="password"
           secureTextEntry={true}
-          placeholderTextColor="#86b4b5"
           autoCapitalize="none"
           autoCorrect={false}
           onChangeText={text => setCurrentPassword(text)}

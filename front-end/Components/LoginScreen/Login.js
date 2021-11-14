@@ -22,7 +22,7 @@ const Login = ({ navigation }) => {
           password: currentPassword,
         })
       );
-      navigation.navigate("Menu", { ...api.data });
+      navigation.navigate("Menu", { API });
     } catch (e) {
       console.log(e);
     }

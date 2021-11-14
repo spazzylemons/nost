@@ -1,19 +1,12 @@
 import React, { useState } from 'react'
-import { ScrollView, TextInput, Button } from 'react-native';
+import { View, Text, Image, ScrollView, TextInput, Button } from 'react-native';
 
-const Login = ({ navigation, route}) => {
-
-  const { username, password } = route.params;
-
-  const [currentUsername, setCurrentUsername] = useState('');
-  const [currentPassword, setCurrentPassword] = useState('');
+const Login = ({ navigation }) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const onSubmit = () => {
-    if (currentUsername === username && currentPassword === password) {
-      navigation.navigate('Home')
-    } else {
-      console.log('Incorrect Password')
-    }
+    navigation.navigate('Home')
   }
 
   return (
@@ -21,13 +14,14 @@ const Login = ({ navigation, route}) => {
       <TextInput
           style={{height: 40}}
           placeholder="Username"
-          onChangeText={text => setCurrentUsername(text)}
+          onChangeText={text => setUsername(text)}
+          defaultValue={username}
       />
       <TextInput
           style={{height: 40}}
           placeholder="Password"
-          onChangeText={text => setCurrentPassword(text)}
-      />
+          onChangeText={text => setPassword(text)}
+          defaultValue={password}/>
       <Button
           onPress={onSubmit}
           title="Submit"

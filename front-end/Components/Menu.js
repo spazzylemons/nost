@@ -8,7 +8,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const Tab = createBottomTabNavigator()
 
 const Menu = ({ navigation, route }) => {
-  // const { api } = route.params.api;
+  const api = route.params.api;
 
   return (
     <Tab.Navigator
@@ -30,7 +30,7 @@ const Menu = ({ navigation, route }) => {
         })}
     >
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Log" component={Log} />
+      <Tab.Screen name="Log" component={Log(api)} />
     </Tab.Navigator>
   )
 }

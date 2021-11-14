@@ -31,11 +31,23 @@ const HomeScreen = () => {
       <Avatar size="large" title="M" activeOpacity={0.7} />
       <Text> Hello </Text>
       {/*Flatlist or virtualized list?*/}
-      {/*<FlatList
-          data={DATA}
-          renderItem={renderItem}
-          keyExtractor={(item) => { console.log(item.id); item.id} }
-      />*/}
+      {/*<FlatList*/}
+      {/*    data={DATA}*/}
+      {/*    renderItem={renderItem}*/}
+      {/*    keyExtractor={(item) => { console.log(item.id); item.id} }*/}
+      {/*/>*/}
+
+      {/*{ array.forEach((obj) => {*/}
+      {/*  console.log(obj.id);*/}
+      {/*  const { text, sentiment, username } = array;*/}
+
+      {/* return (*/}
+      {/*  <View>*/}
+      {/*    <Text>{ text }</Text>*/}
+      {/*    <Text>{ username }</Text>*/}
+      {/*  </View>*/}
+      {/* )*/}
+      {/*  })};*/}
     </ScrollView>
   );
 };

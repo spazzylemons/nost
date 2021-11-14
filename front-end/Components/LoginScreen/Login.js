@@ -8,21 +8,13 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import AxiosInstance from "./../../axios";
 const Login = ({ navigation }) => {
   const [currentUsername, setCurrentUsername] = useState("");
   const [currentPassword, setCurrentPassword] = useState("");
-  const AxiosInstance1 = AxiosInstance(false);
   const onLogin = async () => {
     try {
-      let api = await AxiosInstance1.post(
-        "token/obtain/",
-        JSON.stringify({
-          username: currentUsername,
-          password: currentPassword,
-        })
-      );
-      navigation.navigate("Menu", { ...api.data });
+      let api = await API.create(currentUsername, currentPassword);
+      navigation.navigate("Menu", { api });
     } catch (e) {
       console.log(e);
     }
@@ -70,9 +62,6 @@ const Login = ({ navigation }) => {
       <TouchableOpacity style={styles.loginBtn} onPress={onLogin}>
         <Text style={{ fontSize: 20 }}> Log In </Text>
       </TouchableOpacity>
-
-      <Text>{"password " + currentPassword}</Text>
-      <Text>{"username :" + currentUsername}</Text>
     </View>
   );
 };

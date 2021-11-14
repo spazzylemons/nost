@@ -29,8 +29,8 @@ const Menu = ({ navigation, route }) => {
           tabBarInactiveTintColor: 'gray',
         })}
     >
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Log" component={Log(api)} />
+      <Tab.Screen name="Home" component={Home} initialParams={{ api }} />
+      <Tab.Screen name="Log" component={Log} initialParams={{ api }} />
     </Tab.Navigator>
   )
 }

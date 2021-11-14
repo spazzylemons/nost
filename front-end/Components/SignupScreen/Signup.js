@@ -85,8 +85,6 @@ const Signup = ({ navigation }) => {
           Already have an account? Log in instead!
         </Text>
       </TouchableOpacity>
-      <Text>{username}</Text>
-      <Text>{password}</Text>
 
       <TouchableOpacity style={styles.SignupBtn} onPress={onSubmit}>
         <Text style={{ fontSize: 20 }}>Sign Up</Text>

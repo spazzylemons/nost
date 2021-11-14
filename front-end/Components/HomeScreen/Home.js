@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FlatList, ScrollView, StyleSheet, Text } from "react-native";
 import { Avatar } from "react-native-elements";
 import View from "react-native-web/dist/vendor/react-native/Animated/components/AnimatedView";
@@ -18,36 +18,64 @@ const DATA = [
   },
 ];
 
-const HomeScreen = () => {
+const HomeScreen = ({ route }) => {
+  const api = route.params.api;
+
+  const today = new Date();
+  const yesterday = new Date(today);
+  yesterday.setDate(yesterday.getDate() - 1);
+
+  const [happyPosts, setHappyPosts] = useState('');
+  const [neutralPosts, setNeutralPosts] = useState('');
+  const [sadPosts, setSadPosts] = useState('');
+
+  const [data, setData] = useState('');
+
+  (async () => {
+    const posts = await api.filterPosts(yesterday, today);
+    setData(posts);
+    // let tempHappy = "";
+    // let tepmNeutral = "";
+    // let tempSad = "";
+    // for (const post of posts) {
+    //   if (post.compound <= -0.5) {
+    //     tempSad += post.text + '\n';
+    //   } else if(post.compound >= 0.5) {
+    //     tempHappy += post.text + '\n';
+    //   } else {
+    //     tepmNeutral += post.text + '\n';
+    //   }
+    // }
+    // setHappyPosts(tempHappy);
+    // setNeutralPosts(tepmNeutral);
+    // setSadPosts(tempSad);
+  })();
+
+  const selectColor = (compound) => {
+    if (compound <= -0.5) {
+      return { color: '#800' };
+    } else if (compound >= 0.5) {
+      return { color: '#080' };
+    } else {
+      return {};
+    }
+  }
+
   const renderItem = ({ item }) => {
     return (
       <View style={styles.item}>
-        <Text style={styles.title}>{item.title}</Text>
+        <Text style={{...styles.text, ...selectColor(item.compound)}}>{item.text}</Text>
       </View>
     );
   };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Avatar size="large" title="M" activeOpacity={0.7} />
-      <Text> Hello </Text>
-      {/*Flatlist or virtualized list?*/}
-      {/*<FlatList*/}
-      {/*    data={DATA}*/}
-      {/*    renderItem={renderItem}*/}
-      {/*    keyExtractor={(item) => { console.log(item.id); item.id} }*/}
-      {/*/>*/}
-
-      {/*{ array.forEach((obj) => {*/}
-      {/*  console.log(obj.id);*/}
-      {/*  const { text, sentiment, username } = array;*/}
-
-      {/* return (*/}
-      {/*  <View>*/}
-      {/*    <Text>{ text }</Text>*/}
-      {/*    <Text>{ username }</Text>*/}
-      {/*  </View>*/}
-      {/* )*/}
-      {/*  })};*/}
+      <FlatList
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={item => item.text}
+      />
     </ScrollView>
   );
 };

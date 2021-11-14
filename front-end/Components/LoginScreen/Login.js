@@ -22,10 +22,23 @@ const Login = ({ navigation, route}) => {
           style={{height: 40}}
           placeholder="Username"
           onChangeText={text => setCurrentUsername(text)}
+          name="username"
+          type="text"
+          placeholder="USERNAME"
+          placeholderTextColor="#86b4b5"
+          returnKeyType="next"
+          keyboardType="default"
+          autoCapitalize="none"
+          autoCorrect={false}
       />
       <TextInput
           style={{height: 40}}
-          placeholder="Password"
+          name="password"
+          placeholder="PASSWORD"
+          secureTextEntry={true}
+          placeholderTextColor="#86b4b5"
+          autoCapitalize="none"
+          autoCorrect={false}
           onChangeText={text => setCurrentPassword(text)}
           />
       <Button

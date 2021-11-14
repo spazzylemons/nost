@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
-import { View, Text, Image, ScrollView, TextInput, Button } from 'react-native';
+import { ScrollView, TextInput, Button } from 'react-native';
 
-const Login = ({ navigation, setUsername }) => {
+const Login = ({ navigation }) => {
+
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const onSubmit = () => {
-    navigation.navigate('Login')
+    navigation.navigate('Login', { username, password })
   }
-
   return (
       <ScrollView>
         <TextInput
@@ -14,12 +17,12 @@ const Login = ({ navigation, setUsername }) => {
             placeholder="Username"
             onChangeText={text => setUsername(text)}
         />
-        {/*<TextInput*/}
-        {/*    style={{height: 40}}*/}
-        {/*    placeholder="Email"*/}
-        {/*    onChangeText={text => setEmail(text)}*/}
-        {/*    defaultValue={email}*/}
-        {/*/>*/}
+        <TextInput
+            style={{height: 40}}
+            placeholder="Email"
+            onChangeText={text => setEmail(text)}
+            defaultValue={email}
+        />
         <TextInput
             style={{height: 40}}
             placeholder="Password"

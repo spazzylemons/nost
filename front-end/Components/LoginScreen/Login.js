@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { View, Text, Image, ScrollView, TextInput, Button } from 'react-native';
+import { ScrollView, TextInput, Button } from 'react-native';
 
 const Login = ({ navigation }) => {
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -10,7 +11,7 @@ const Login = ({ navigation }) => {
   }
 
   return (
-    <ScrollView>
+  <ScrollView>
       <TextInput
           style={{height: 40}}
           placeholder="Username"
@@ -21,7 +22,8 @@ const Login = ({ navigation }) => {
           style={{height: 40}}
           placeholder="Password"
           onChangeText={text => setPassword(text)}
-          defaultValue={password}/>
+          defaultValue={password}
+          />
       <Button
           onPress={onSubmit}
           title="Submit"

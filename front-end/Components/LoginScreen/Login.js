@@ -1,20 +1,18 @@
+import API from '../../API';
 import React, { useState } from 'react'
 import { ScrollView, TextInput, Button } from 'react-native';
 
 const Login = ({ navigation, route}) => {
 
-  const { username, password } = route.params;
-
   const [currentUsername, setCurrentUsername] = useState('');
   const [currentPassword, setCurrentPassword] = useState('');
 
-  const onSubmit = () => {
-      if (currentUsername === username && currentPassword === password) {
-        navigation.navigate('Menu')
-      } else {
-        console.log('Incorrect Password')
-        console.log(currentPassword)
-        console.log(password)
+  const onSubmit = async () => {
+      try {
+        const api = await API.create(currentUsername, currentPassword);
+        navigation.navigate('Menu', { api });
+      } catch (e) {
+        console.log(e);
       }
   }
 

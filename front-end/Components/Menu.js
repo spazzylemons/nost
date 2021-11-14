@@ -3,13 +3,15 @@ import { Button, View } from 'react-native';
 import Home from "./HomeScreen/Home";
 import Log from "./LogScreen/Log";
 
-const HomeScreen = ({ navigation }) => {
+const Menu = ({ navigation, route }) => {
+  const { api } = route.params;
+
   const [atHome, setAtHome] = useState(true);
 
   return (
       <>
         <View>
-          {atHome ? <Home /> : <Log />}
+          {atHome ? <Home /> : <Log api={api} />}
         </View>
         <View>
           <Button title='Home' onPress={() => { setAtHome(true) }}/>
@@ -19,4 +21,4 @@ const HomeScreen = ({ navigation }) => {
   )
 }
 
-export default HomeScreen
+export default Menu

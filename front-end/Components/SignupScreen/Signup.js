@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ScrollView, TextInput, Button } from 'react-native';
+import { Image, ScrollView, TextInput, Button } from 'react-native';
 import API from '../../API';
 import axiosInstance from '../../axios';
 const Signup = ({ navigation }) => {
@@ -29,6 +29,7 @@ const Signup = ({ navigation }) => {
 
   return (
       <ScrollView>
+      <Image source={require('../../logo.svg')} style={{width: '8em', height: '4em', alignSelf: 'center'}} />
         <TextInput
             style={{height: 40}}
             placeholder="Username"

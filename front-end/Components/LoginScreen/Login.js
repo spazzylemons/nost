@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import { View, Text, Image, ScrollView, TextInput, Button } from 'react-native';
 
-const Login = ({ navigation, route}) => {
-
-  const { username, password, setUsername, setPassword } = route.params;
+const LoginScreen = ({ navigation }) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const onSubmit = () => {
     navigation.navigate('Home')
   }
 
   return (
-    <ScrollView>
       <TextInput
           style={{height: 40}}
           placeholder="Username"

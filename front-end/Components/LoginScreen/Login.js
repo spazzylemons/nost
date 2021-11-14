@@ -30,12 +30,10 @@ const Login = ({ navigation }) => {
     <View style={styles.inputView}>
       <TextInput
           style={styles.TextInput}
-          placeholder="Username"
-          placeholderTextColor="#003f5c"
           onChangeText={text => setCurrentUsername(text)}
           name="username"
           type="text"
-          placeholder="USERNAME"
+          placeholder="Username"
           placeholderTextColor="#86b4b5"
           returnKeyType="next"
           keyboardType="default"

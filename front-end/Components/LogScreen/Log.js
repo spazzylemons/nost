@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { View, Text, Image, ScrollView, TextInput, Button,StyleSheet } from "react-native";
 import axios from "axios";
-import { Audio } from "expo-av"; 
+import { Audio } from "expo-av";
 import axiosInstance from "../../axios";
-function Log() {
-  const [textSend, setTextSend] = useState("");
 
- 
+
+const Log = () => {
+  const [textSend, setTextSend] = useState("");
 
   {/*const axiosInstance = axios.create({
     baseURL: "http://127.0.0.1:8000/api/",

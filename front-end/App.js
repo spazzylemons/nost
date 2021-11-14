@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import LoginScreen from "./Components/LoginScreen/Login";
-import HomeScreen from "./Components/HomeScreen/Home";
 import Signup from "./Components/SignupScreen/Signup";
-import Log from "./Components/LogScreen/Log";
 import Menu from "./Components/Menu";
 
 const Stack = createNativeStackNavigator();

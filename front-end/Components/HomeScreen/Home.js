@@ -2,7 +2,7 @@ import React from 'react'
 import { ScrollView, Button, View } from 'react-native';
 import { Avatar } from 'react-native-elements';
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
   return (
     <ScrollView>
           <Avatar

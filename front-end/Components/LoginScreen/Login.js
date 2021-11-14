@@ -39,4 +39,4 @@ const Login = ({ navigation, route}) => {
   )
 }
 
-export default LoginScreen
+export default Login

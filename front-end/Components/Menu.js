@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import { ScrollView, Button, View } from 'react-native';
-import { Avatar } from 'react-native-elements';
+import { Button, View } from 'react-native';
 import Home from "./HomeScreen/Home";
 import Log from "./LogScreen/Log";
 
